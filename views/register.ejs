@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+</head>
+<body>
+
+		<div class="header">
+		<h2>This is The Registration Page</h2>
+		<marquee><h3>Registration Goes Here...</h3></marquee>
+
+		</div>
+
+		<div class="content">
+		<h3>Medical Personnel Registration Form</h3>
+
+		<%- include('./partials/messages')   %>
+
+   <form action="" method="post">
+	<input type="text" name="firstname" placeholder="Firstname" 
+	value="<%= typeof firstname != 'undefined' ? firstname : '' %>"/>
+	<br/>
+	<input type="text" name="lastname" placeholder="Lastname"
+	 value="<%= typeof lastname != 'undefined' ? lastname : '' %>"/>
+	<p>Gender: Male <input type="radio" name="gender" value="Male"
+			<% if(typeof gender != 'undefined' && gender === 'Male'){ %> checked="checked" <%}%>
+			/>
+					Female <input type="radio" name="gender" value="Female"
+			<% if(typeof gender != 'undefined' && gender === 'Female'){ %> checked="checked" <%}%>
+			/>
+	</p>
+
+	<input type="text" name="phoneNumber" placeholder="Phone Number"
+	value="<%= typeof phoneNumber != 'undefined' ? phoneNumber : '' %>"/>
+
+	<p>Qualification: B.Sc <input type="radio" name="qualification" value="B.Sc"
+		<% if(typeof qualification != 'undefined' && qualification === 'B.Sc'){ %> checked="checked" <%}%>
+	   />
+	M.Sc <input type="radio" name="qualification" value="M.Sc"
+	<% if(typeof qualification != 'undefined' && qualification === 'M.Sc'){ %> checked="checked" <%}%>
+	 />
+	
+	PhD <input type="radio" name="qualification" value="PhD"
+	<% if(typeof qualification != 'undefined' && qualification === 'PhD'){ %> checked="checked" <%}%>
+	/>
+				    </p>
+
+
+
+	 <select name="specialization">
+			<option value="">Select Your Specialization</option>
+
+		<% let specialty = ['General Medicine', 'General Surgery', 'Neuro Surgeon', 'Gyanaecology', 'Physiotherapy'];
+			specialty.forEach(function(specialties){ %>
+
+		<option value="<%= specialties %>"
+  		<% if(typeof specialization !='undefined' && specialization === specialties){ %> selected="selected" <%}%>
+  		><%= specialties %></option>
+
+  		<% }) %>
+			
+	</select>
+	<br/>
+
+	<select name="nationality">
+	<option value="">Select Your Nationality</option>
+
+	<% let nation = ['India', 'Chinese', 'African', 'American', 'Japanese'];
+			nation.forEach(function(nations){ %>
+  		<option value="<%= nations %>"
+  		<% if(typeof nationality !='undefined' && nationality === nations){ %> selected="selected" <%}%>
+  		><%= nations %></option>
+
+  		<% }) %>
+  	</select>
+
+
+  	<br/>
+
+  	<input type="text" name="registrationNumber" placeholder="Registration Number"
+  	 value="<%= typeof registrationNumber != 'undefined' ? registrationNumber : '' %>"/>
+	<br/>
+
+	<input type="text" name="hospitalName" placeholder="Approved Hospital Name"
+	 value="<%= typeof hospitalName != 'undefined' ? hospitalName : '' %>"/>
+	<br/>
+
+	<input type="text" name="username" placeholder="Preferred Username"
+	value="<%= typeof username != 'undefined' ? username : '' %>"/>
+	<br/>
+
+	<input type="password" name="password" placeholder="Password"
+	value="<%= typeof password != 'undefined' ? password : '' %>"/>
+	<br/>
+
+	<input type="password" name="password1" placeholder="Confirm Password"
+	value="<%= typeof password1 != 'undefined' ? password1 : '' %>"/>
+	<br/>
+
+	<input type="submit" name="" value="Click to Register"/>
+
+  </form>
+
+  <p>Have An Account?<a href="/login">Login</a></p>
+
+<%- include('partials/footer') %>

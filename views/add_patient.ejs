@@ -1,0 +1,102 @@
+
+
+		<%- include('partials/header') %>
+
+		<h2>Add Patient</h2>
+
+		<h3>Patient Bio-data Form</h3>
+		<p>Please fill the form fields below</p>
+
+		<%- include('./partials/messages')   %>
+
+		<form action="/addpatient" method="post">
+
+	         <p> <input type="text" name="firstname" place="Firstname"
+	                value="<%= typeof firstname != 'undefined' ? firstname : '' %>"/>
+	          </p>
+
+			<p> <input type="text" name="lastname" placeholder="Lastname"
+					value="<%= typeof lastname != 'undefined' ? lastname : '' %>"/>
+			</p>
+
+			<p>Sex: Male <input type="radio" name="sex" value="Male"
+			<% if(typeof sex != 'undefined' && sex === 'Male'){ %> checked="checked" <%}%>
+			/>
+					Female <input type="radio" name="sex" value="Female"
+			<% if(typeof sex != 'undefined' && sex === 'Female'){ %> checked="checked" <%}%>
+			/>
+					</p>
+			<p> <input type="text" name="phoneNumber" placeholder="Phone Number"
+	       value="<%= typeof phoneNumber != 'undefined' ? phoneNumber : '' %>"/></p>
+
+	       <p>Marital Status: Single <input type="radio" name="status" value="Single"
+	       <% if(typeof status != 'undefined' && status === 'Single'){%> checked="checked"<%}%>
+	       />
+	       					 Married <input type="radio" name="status" value="Married"
+	       	<% if(typeof status != 'undefined' && status === 'Married'){%> checked="checked"<%}%>
+	       	/>
+			
+							Divorced <input type="radio" name="status" value="Divorced"
+	       	<% if(typeof status != 'undefined' && status === 'Divorced'){%> checked="checked"<%}%>
+	       	/>
+
+	       					Widowed <input type="radio" name="status" value="Widowed"
+	       	<% if(typeof status != 'undefined' && status === 'Widowed'){%> checked="checked"<%}%>
+	       	/>
+
+	       	</p>
+
+	       	<p>Blood Group: A <input type="radio" name="bg" value="A"
+	       	<% if(typeof bg != 'undefined' && bf === 'A'){%> checked="checked"<%}%>
+	       	/>
+	       					B <input type="radio" name="bg" value="B"
+	       	<% if(typeof bg != 'undefined' && bf === 'B'){%> checked="checked"<%}%>
+	       	/>
+	       					AB <input type="radio" name="bg" value="AB"
+	       	<% if(typeof bg != 'undefined' && bf === 'AB'){%> checked="checked"<%}%>
+	       	/>	
+	       					O <input type="radio" name="bg" value="O"
+	       	<% if(typeof bg != 'undefined' && bf === 'O'){%> checked="checked" <%}%>
+	       	/>
+
+	       	</p>
+
+	       	<p>Genotype: AA <input type="radio" name="genotype" value="AA"
+	       	<% if(typeof genotype != 'undefined' && genotype === 'AA'){%> checked="checked"<%}%>
+	       	/>
+	       					AC <input type="radio" name="genotype" value="AC"
+	       	<% if(typeof genotype != 'undefined' && genotype === 'AC'){%> checked="checked"<%}%>
+	       	/>
+	       					AS <input type="radio" name="genotype" value="AS"
+	       	<% if(typeof genotype != 'undefined' && gentype === 'AS'){%> checked="checked" <%}%>
+	       	/>	
+	       					SS <input type="radio" name="genotype" value="SS"
+	       	<% if(typeof genotype != 'undefined' && genotype === 'SS'){%> checked="checked"<%}%>
+	       	/>
+
+	       	</p>
+
+
+			
+
+	<p> <select name="nationality">
+	<option value="">Select Patient's Nationality</option>
+
+	<% let nation = ['Nigeria', 'Ghana', 'Togo', 'Garbon', 'South Africa'];
+			nation.forEach(function(nations){ %>
+  		<option value="<%= nations %>"
+  		<% if(typeof nationality !='undefined' && nationality === nations){ %> selected="selected" <%}%>
+  		><%= nations %></option>
+
+  		<% }) %>
+  	</select>
+  	</p>
+
+
+
+			<button type="submit">Click to Add</button>
+
+		</form>
+
+
+<%- include('partials/footer') %>

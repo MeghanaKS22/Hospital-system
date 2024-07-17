@@ -1,0 +1,17 @@
+<%- include('partials/header.ejs') %>
+
+<h2>Add Diagnosis</h2>
+
+<h3>Diagnosis Capture Form</h3>
+<p>Please fill the form fields below</p>
+
+<%- include('partials/messages.ejs') %>
+
+<form action="/adddiagnosis" method="post">
+    <p><input type="text" name="patientid" placeholder="Patient Id"/></p>
+    <p>Complaint: <br/><textarea name="complaint" rows="10" cols="40"></textarea></p>
+    <p>Recommendation: <br/><textarea name="recommendation" rows="10" cols="40"></textarea></p>
+    <button type="submit">Click to Add</button>
+</form>
+
+<%- include('partials/footer.ejs') %>

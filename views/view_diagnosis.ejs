@@ -1,0 +1,23 @@
+
+
+		<%- include('partials/header') %>
+	
+		<h2>Diagnosis</h2>
+
+
+		<h3>Diagnosis Details Page</h3>
+		<table border="1">
+			<tr>
+				<th>Date</th><th>Complaint</th><th>Recommendation</th>
+			</tr>
+
+			<% result.forEach(function(results) { %>
+				<td> <%= results.date %> </td>
+				<td> <%= results.complaint %> </td>
+				<td> <%= results.recommendation %> </td>
+				</tr>
+			<% }) %>
+
+		</table>
+
+		<%- include('partials/footer') %>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+</head>
+<body class="contain">
+    <div class="cont">
+        <h1>Login Page</h1>
+        <p>Please enter your Username and Password</p>
+        <!-- Display flash messages -->
+        <% if (typeof messages !== 'undefined' && messages.error) { %>
+            <p class="error"><%= messages.error %></p>
+        <% } %>
+
+        <form action="/login" method="post">
+            <p><input type="text" name="username" placeholder="Username" /></p>
+            <p><input type="password" name="password" placeholder="Password" /></p>
+            <button type="submit">Login</button>
+        </form>
+
+        <p>No Account? <a href="/register">Register</a></p>
+    </div>
+</body>
+</html>

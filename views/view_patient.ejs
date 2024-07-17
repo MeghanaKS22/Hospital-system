@@ -1,0 +1,26 @@
+
+
+	
+
+	<%- include('partials/header') %>
+	
+		<h2>View Patient</h2>
+
+
+		<table border="1">
+			<tr>
+				<th>Name</th><th>Gender</th><th>Genotype</th><th>Blood Group</th><th>ID</th>
+			</tr>
+
+			<% result.forEach(function(results) { %>
+				<td> <%= results.firstname +' '+results.lastname %> </td>
+				<td> <%= results.sex %> </td>
+				<td> <%= results.genotype %> </td>
+				<td> <%= results.bloodGroup %> </td>
+				<td><a href="/viewdiagnosis/<%= results.id %>"> <%= results.id %> </a></td>
+				</tr>
+			<% }) %>
+
+		</table>
+
+		<%- include('partials/footer') %>
